@@ -1,0 +1,12 @@
+h1{
+	text-align: center;
+}
+
+.fond{
+	background-color: grey;
+}
+
+.taille{
+	height: 100px;
+	width: 100px;
+}
