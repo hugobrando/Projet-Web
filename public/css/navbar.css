@@ -3,10 +3,15 @@ h1{
 }
 
 .fond{
-	background-color: grey;
+	margin-right: -15px;
+	margin-left: -15px;
 }
 
 .taille{
 	height: 100px;
 	width: 100px;
+}
+
+.nav{
+	text-align: right;
 }

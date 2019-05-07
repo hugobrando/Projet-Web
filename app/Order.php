@@ -13,4 +13,6 @@ class Order extends Model
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey =['idUser','idProduct'];
+    protected $table ='Order'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
+
 }

@@ -15,4 +15,21 @@ class User extends Authenticatable
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey ='idUser';
+    protected $table ='User'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
+
+
+    public static function connect(){
+    	$user = self::where('idUser',request('id'))->firstOrFail();
+    	if(!(empty($user))){
+    		if($user->password == request('mdp')){
+    			return true;
+    		}
+    		else{
+    			return false;
+    		}
+    	}
+    	else{
+    		return false;
+    	}
+    }
 }

@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('connexion');
-});
+Route::get('/','ConnexionControler@show');
+Route::post('/','ConnexionControler@connect');
 
-Route::get('/header',function () {
-	return view('header');
+
+Route::get('/sale',function () {
+	return view('sale');
 });
 
 Auth::routes();
