@@ -30,6 +30,15 @@ class Product extends Model
     			->decrement('stockProduct', (int)request('sale'));
     }
 
-    //todo 
-    // public static function saleProducts(){}
+    // un produit doit potentiellement etre commander si son stock est inferieur ou égal a son stock critique
+    public static function productWithCriticalStock(){ 
+    	$allProducts = self::get();
+    	$result = [];
+		foreach($allProducts as $element){
+			if($element->stockProduct <= $element->criticalStockProduct){
+				$result[] = $element;
+			}
+		}
+		return $result;
+    }
 }

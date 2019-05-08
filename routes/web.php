@@ -18,6 +18,8 @@ Route::post('/','ConnexionControler@connect');
 Route::get('/sale','SaleController@show');
 Route::put('/sale','SaleController@saleProducts');
 
+Route::get('/order','OrderController@show');
+
 
 Auth::routes();
 
