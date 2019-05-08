@@ -14,7 +14,7 @@ class ConnexionControler extends Controller
     public function connect(Request $request){
         if ($request->has('connect')) {
         	if(User::connect()){
-    			return redirect('/sale');
+    			return redirect('/sale')->cookie('id', request('id'), 50);
         	}
         	else{
         		return back()->withErrors([

@@ -12,7 +12,7 @@ class SaleController extends Controller
     	return view('/sale')->with(['products' => $products]);
     }
 
-    public function saleProducts(Request $request){
+    public function saleProduct(Request $request){
     	if($request->has('saleProduct')){
     		Product::saleProduct();
     		return back();

@@ -35,7 +35,8 @@ class Product extends Model
     	$allProducts = self::get();
     	$result = [];
 		foreach($allProducts as $element){
-			if($element->stockProduct <= $element->criticalStockProduct){
+            $sumOrderQuantity = Order::getOrderQauntityById($element->idProduct);
+			if(($element->stockProduct + $sumOrderQuantity) <= $element->criticalStockProduct){
 				$result[] = $element;
 			}
 		}

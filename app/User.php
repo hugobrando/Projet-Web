@@ -19,15 +19,17 @@ class User extends Authenticatable
 
 
     public static function connect(){
-    	$user = self::where('idUser',request('id'))->firstOrFail();
-    	if(!(empty($user))){
-    		if($user->password == request('mdp')){
-    			return true;
-    		}
-    		else{
-    			return false;
-    		}
-    	}
+        if(!(empty(request('id')))){
+            $user = self::where('idUser',request('id'))->firstOrFail();
+            if(!(empty($user))){
+                if($user->password == request('mdp')){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }
+        }
     	else{
     		return false;
     	}

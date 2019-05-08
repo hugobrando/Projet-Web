@@ -16,9 +16,10 @@ Route::post('/','ConnexionControler@connect');
 
 
 Route::get('/sale','SaleController@show');
-Route::put('/sale','SaleController@saleProducts');
+Route::put('/sale','SaleController@saleProduct');
 
 Route::get('/order','OrderController@show');
+Route::put('/order','OrderController@orderProduct');
 
 
 Auth::routes();
