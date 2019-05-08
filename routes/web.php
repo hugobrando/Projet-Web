@@ -15,9 +15,9 @@ Route::get('/','ConnexionControler@show');
 Route::post('/','ConnexionControler@connect');
 
 
-Route::get('/sale',function () {
-	return view('sale');
-});
+Route::get('/sale','SaleController@show');
+Route::put('/sale','SaleController@saleProducts');
+
 
 Auth::routes();
 

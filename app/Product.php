@@ -16,5 +16,20 @@ class Product extends Model
     protected $primaryKey = 'idProduct';
     protected $table ='Product'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
+    public static function giveAllProductWithStock(){
+    	return self::where('stockProduct', '!=' ,0)
+    			->get(['idProduct','wordingProduct','stockProduct']);
+    }
 
+    public static function giveAllProduct(){
+    	return self::get(['idProduct','wordingProduct','stockProduct']);
+    }
+
+    public static function saleProduct(){
+    	self::where('idProduct',request('idProduct'))
+    			->decrement('stockProduct', (int)request('sale'));
+    }
+
+    //todo 
+    // public static function saleProducts(){}
 }

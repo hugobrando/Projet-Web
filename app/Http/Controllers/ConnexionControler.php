@@ -14,7 +14,7 @@ class ConnexionControler extends Controller
     public function connect(Request $request){
         if ($request->has('connect')) {
         	if(User::connect()){
-    			return view('sale');
+    			return redirect('/sale');
         	}
         	else{
         		return back()->withErrors([
