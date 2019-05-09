@@ -27,6 +27,7 @@ class Product extends Model
 
     public static function saleProduct(){
     	self::where('idProduct',request('idProduct'))
+                ->where('stockProduct','>=',(int)request('sale'))  // pour ne jamais avoir de stock negatif
     			->decrement('stockProduct', (int)request('sale'));
     }
 
