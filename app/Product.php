@@ -38,6 +38,7 @@ class Product extends Model
 		foreach($allProducts as $element){
             $sumOrderQuantity = Order::getOrderQauntityById($element->idProduct);
 			if(($element->stockProduct + $sumOrderQuantity) <= $element->criticalStockProduct){
+                $element->order = $sumOrderQuantity; //rajoute le nombre de produit en commande pour ce produit
 				$result[] = $element;
 			}
 		}

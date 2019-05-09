@@ -3,6 +3,7 @@
 @section('link')
   <link rel="stylesheet" href="{{ URL::asset('css/order.css') }}" />
 
+
 @endsection
 
 @section('content')
@@ -37,7 +38,7 @@
                     <tr>
                       <td>{{$product->wordingProduct}}</td>
                       <td>{{$product->stockProduct}}</td>
-                      <td>todo avec js</td>
+                      <td>{{$product->order}}</td>
                       <td>
                         <div class="row justify-content-around">
                           <div class="col-2 ">
@@ -46,6 +47,9 @@
                           <div class="col-2 ">
                             <input type="text" name="nameProvider" class="form-control tailleInputNameProvider" placeholder="Nom du fournisseur">
                           </div>
+                          @if ($errors->has('nameProvider'))
+                                <div class="alert alert-danger" role="alert"> {{ $errors->first('nameProvider') }} </div>
+                          @endif
                           <div class="col-5">
                             <button type="submit" class="btn btn-primary" name="orderProduct">Comfirmer la commande</button>
                           </div>

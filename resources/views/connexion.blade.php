@@ -42,7 +42,7 @@
             			@endif
 						
 						<div class="form-group form-check centrer">
-							<input type="checkbox" class="form-check-input" id="Admin" onclick="affichage()">
+							<input type="checkbox" class="form-check-input" id="Admin">
 						    <label class="form-check-label" for="Admin" >Admin</label>
 						    <p id="test"></p>
 						</div>
