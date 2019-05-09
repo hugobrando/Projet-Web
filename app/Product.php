@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Order;
 
 class Product extends Model
 {
@@ -36,7 +37,7 @@ class Product extends Model
     	$allProducts = self::get();
     	$result = [];
 		foreach($allProducts as $element){
-            $sumOrderQuantity = Order::getOrderQauntityById($element->idProduct);
+            $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);
 			if(($element->stockProduct + $sumOrderQuantity) <= $element->criticalStockProduct){
                 $element->order = $sumOrderQuantity; //rajoute le nombre de produit en commande pour ce produit
 				$result[] = $element;
@@ -45,7 +46,7 @@ class Product extends Model
 		return $result;
     }
 
-    public static function incrementProductById($idProduct,$quantity){
+    public static function incrementProductById($idProduct,$quantity){        
         return self::where('idProduct',$idProduct)
                 ->increment('stockProduct', $quantity);
     }

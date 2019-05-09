@@ -27,7 +27,9 @@ class Order extends Model
         ]);
     }
 
-    public static function getOrderQauntityById($idProduct){
+
+    //la quantité de tout les commande en cours pour ce produit
+    public static function getOrderQuantityById($idProduct){
         return self::select('quantity')
                     ->where('idProduct',$idProduct)
                     ->where('statusOrder','En cours')
@@ -37,12 +39,13 @@ class Order extends Model
     public static function getOrderEnCours(){
         return self::where('statusOrder','En cours')
                         ->join('product', 'product.idProduct', '=', 'order.idProduct')
-                        ->get(['idOrder','wordingProduct','dateOrder','providerOrder','quantity']);
+                        ->get(['idOrder','order.idProduct','wordingProduct','dateOrder','providerOrder','quantity']);
     }
 
     public static function getOrderFinish(){
         return self::where('statusOrder','Terminée')
                         ->join('product', 'product.idProduct', '=', 'order.idProduct')
+                        ->orderBy('dateReceipt', 'desc') //la date la plus recente en premier
                         ->get(['idOrder','wordingProduct','dateOrder','providerOrder','quantity','dateReceipt']);
     }
 
@@ -55,12 +58,11 @@ class Order extends Model
                     ]);
 
         // increment stock product
-        $idProduct = self::where('idOrder',request('idOrder'))
-                        ->get('idProduct');
-        $quantity = self::where('idOrder',request('idOrder'))
-                        ->get('quantity');
-        return Product::incrementProductById($idProduct,$quantity);
+        
+        Product::incrementProductById(request('idProduct'),request('quantity'));
 
     }
+
+
 }
 

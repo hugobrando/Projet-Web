@@ -30,15 +30,17 @@
                     {{method_field('PUT')}}
                     {{  csrf_field()  }}
 
-                    <!-- idProduct-->
+                    <!-- idProduct/quantity/idProduct-->
                     <input name="idOrder" type="hidden" value="{{$order->idOrder}}">
+                    <input name="quantity" type="hidden" value="{{$order->quantity}}">
+                    <input name="idProduct" type="hidden" value="{{$order->idProduct}}">
 
                     <tr>
                       <td>{{$order->wordingProduct}}</td>
                       <td>{{$order->dateOrder}}</td>
                       <td>{{$order->providerOrder}}</td>
                       <td>{{$order->quantity}}</td>
-                  	  <td><button type="submit" class="btn btn-primary" name="finishOrder">Commande terminé</button></td>
+                  	  <td><button type="submit" class="btn btn-primary" name="finishOrder">Commande Arrivée</button></td>
                     </tr>
                   </form>
                 @endforeach
@@ -68,12 +70,6 @@
               <tbody>
                 @foreach($finish as $order)
                   <form method="post">
-                    {{method_field('PUT')}}
-                    {{  csrf_field()  }}
-
-                    <!-- idProduct-->
-                    <input name="idOrder" type="hidden" value="{{$order->idOrder}}">
-
                     <tr>
                       <td>{{$order->wordingProduct}}</td>
                       <td>{{$order->dateOrder}}</td>
