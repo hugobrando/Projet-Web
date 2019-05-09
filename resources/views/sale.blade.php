@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <table class="table table-striped visu">
+            <table class="table table-striped visu jumbotron">
               <thead>
                 <tr>
                   <h1 class="text-primary visu">Saisie des Ventes</h1>

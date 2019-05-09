@@ -11,13 +11,13 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-          @if ($errors->has('orderProduct'))
-                    <small>  <div class="alert alert-danger" role="alert">Le fournisseur est requis</div>  </small>
-                  @endif
-            <table class="table table-striped visu">
+            <table class="table table-striped visu jumbotron">
               <thead>
                 <tr>
                   <h1 class="text-primary visu">Produit à commander</h1>
+                  @if ($errors->has('nameProvider'))
+                    <div class="alert alert-danger" role="alert"> {{ $errors->first('nameProvider') }} </div>
+                  @endif
                 </tr>
                 <tr>
                   <th scope="col">Libellé</th>
@@ -47,9 +47,6 @@
                           <div class="col-2 ">
                             <input type="text" name="nameProvider" class="form-control tailleInputNameProvider" placeholder="Nom du fournisseur">
                           </div>
-                          @if ($errors->has('nameProvider'))
-                                <div class="alert alert-danger" role="alert"> {{ $errors->first('nameProvider') }} </div>
-                          @endif
                           <div class="col-5">
                             <button type="submit" class="btn btn-primary" name="orderProduct">Comfirmer la commande</button>
                           </div>

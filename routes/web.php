@@ -21,6 +21,8 @@ Route::put('/sale','SaleController@saleProduct');
 Route::get('/order','OrderController@show');
 Route::put('/order','OrderController@orderProduct');
 
+Route::get('/orderHistory','OrderHistoryController@show');
+Route::put('/orderHistory','OrderHistoryController@finishOrder');
 
 Auth::routes();
 

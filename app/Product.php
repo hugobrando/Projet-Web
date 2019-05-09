@@ -44,4 +44,9 @@ class Product extends Model
 		}
 		return $result;
     }
+
+    public static function incrementProductById($idProduct,$quantity){
+        return self::where('idProduct',$idProduct)
+                ->increment('stockProduct', $quantity);
+    }
 }
