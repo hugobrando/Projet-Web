@@ -11,7 +11,7 @@ class Product extends Model
 
 	protected $guard = ['idProduct'];
 
-    protected $fillable = ['workingPorduct','stockProduct','criticalStockProduct','idCategory'];
+    protected $fillable = ['wordingProduct','stockProduct','criticalStockProduct','idCategory'];
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey = 'idProduct';

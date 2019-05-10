@@ -49,6 +49,7 @@
 			  </div>
 			</div>
 		  	
+		    <button class="btn btn-primary" type="button"><a href="./saleHistory" class="deco">Historique des ventes</a></button>
 
 			<form class="form-inline my-2 my-lg-0 nav">
 			    <button class="btn btn-success position" type="submit"><a href="./deconnect" class="deco">Déconnexion</a></button>

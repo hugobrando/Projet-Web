@@ -36,6 +36,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::get('/orderHistory','OrderHistoryController@show');
 	Route::put('/orderHistory','OrderHistoryController@finishOrder');
 
+	Route::get('/saleHistory','SaleHistoryController@show');
+
 });
 
 

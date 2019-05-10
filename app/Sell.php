@@ -25,4 +25,11 @@ class Sell extends Model
         ]);
 	}
 
+    public static function getAllSell(){ //donne toute les ventes avec le prenom et nom du vendeur par date decroissante
+        return self::join('user', 'user.idUser', '=', 'sell.idUser')
+                    ->join('product','product.idProduct','=','sell.idProduct')
+                    ->orderBy('dateSale', 'desc') //la date la plus recente en premier
+                    ->get(['dateSale','quantity','wordingProduct','name','firstName']);
+    }
+
 }
