@@ -15,7 +15,6 @@ class OrderController extends Controller
     }
 
     public function orderProduct(Request $request){
-        $id = $request->cookie('id');
 
 		if($request->has('orderProduct')){
             request()->validate([
@@ -24,7 +23,7 @@ class OrderController extends Controller
             'order' => ['bail', 'required', 'int'],
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien et on renvoie une erreur
 
-    		Order::createOrderProduct($id);
+    		Order::createOrderProduct();
     		return back();
     	}
 

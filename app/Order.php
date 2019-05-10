@@ -16,9 +16,9 @@ class Order extends Model
     protected $primaryKey ='idOrder';
     protected $table ='Order'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
-    public static function createOrderProduct($idUser){
+    public static function createOrderProduct(){
 		Self::create([
-            'idUser' => $idUser,
+            'idUser' => auth()->user()->idUser,
             'idProduct' => request('idProduct'),
             'dateOrder' => Carbon::today()->toDateString(),
             'providerOrder' => request('nameProvider'),

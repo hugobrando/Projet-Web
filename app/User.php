@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -11,7 +10,7 @@ class User extends Model implements Authenticatable
 {   
     use BasicAuthenticatable;
 
-    protected $guard = ['idUser'];
+    protected $guard = 'employee';
 
     protected $fillable = ['name','firstName','mail','password'];
     protected $hidden = ['password'];

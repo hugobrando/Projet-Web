@@ -8,6 +8,7 @@ use App\Sell;
 class SaleController extends Controller
 {
     public function show(){
+       
     	$products = Product::giveAllProductWithStock();
     	return view('/sale')->with(['products' => $products]);
     }
@@ -20,9 +21,8 @@ class SaleController extends Controller
             'sale' => ['bail', 'required', 'int'],
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien
 
-            $id = $request->cookie('id');
     		Product::saleProduct();
-            Sell::createSell($id);
+            Sell::createSell();
     		return back();
     	}
     }

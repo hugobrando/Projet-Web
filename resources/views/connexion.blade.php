@@ -13,6 +13,12 @@
 
 <body>
 
+	@if (session('deconnect'))
+	    <div class="alert alert-success">
+	        {{ session('deconnect') }}
+	    </div>
+	@endif
+
 
 	<div class="container-fluid">
 		<div class="col-lg-3  jumbotron  block">
@@ -22,15 +28,24 @@
 
 						<div class="form-group">
 							<label for="idUtilisateur">Identifiant : </label>
-							<input type="text" name="id" id="idUtilisateur" class="form-control">
+							<input type="text" name="id" id="idUtilisateur" class="form-control" value="{{old('id')}}">
+							@if ($errors->has('id'))
+	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('id') }} </div>  </small>
+	            			@endif
 						</div>
 						<div class="form-group">
 							<label for="mdp">Mot de passe : </label>
 							<input type="password" name="mdp" id="mdp" class="form-control">
+							@if ($errors->has('mdp'))
+	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('mdp') }} </div>  </small>
+	            			@endif
 						</div>
 						<div class="form-group">
 							<label for="mdpConfirm">Comfirmation Mot de passe : </label>
 							<input type="password" name="mdpConfirm" id="mdpConfimation" class="form-control" oninput="checkMdp()">
+							@if ($errors->has('mdpConfirm'))
+	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('mdpConfirm') }} </div>  </small>
+	            			@endif
 						    <p class="alert" id="falseMdp"></p>
 
 						</div>

@@ -14,17 +14,26 @@
 Route::get('/','ConnexionControler@show');
 Route::post('/','ConnexionControler@connect');
 
-Route::get('/createUser','CreateUserController@show');
-Route::post('/createUser','CreateUserController@create');
+Route::get('/deconnect','ConnexionControler@deconnect');
 
-Route::get('/sale','SaleController@show');
-Route::put('/sale','SaleController@saleProduct');
+Route::group(['middleware' => 'App\Http\Middleware\Auth'] , function () {
 
-Route::get('/order','OrderController@show');
-Route::put('/order','OrderController@orderProduct');
+	Route::get('/createUser','CreateUserController@show');
+	Route::post('/createUser','CreateUserController@create');
 
-Route::get('/orderHistory','OrderHistoryController@show');
-Route::put('/orderHistory','OrderHistoryController@finishOrder');
+	Route::get('/sale','SaleController@show');
+	Route::put('/sale','SaleController@saleProduct');
+
+	Route::get('/order','OrderController@show');
+	Route::put('/order','OrderController@orderProduct');
+
+	Route::get('/orderHistory','OrderHistoryController@show');
+	Route::put('/orderHistory','OrderHistoryController@finishOrder');
+
+});
+
+
+
 
 Auth::routes();
 

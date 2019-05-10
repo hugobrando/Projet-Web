@@ -16,9 +16,9 @@ class Sell extends Model
     protected $primaryKey = 'idProduct';
 	protected $table ='Sell'; //pour ne pas rajouter de s a Sell(s) lorsque l'on fait une requete SQL
 
-	public static function createSell($idUser){
+	public static function createSell(){
 		Self::create([
-            'idUser' => $idUser,
+            'idUser' => auth()->user()->idUser,
             'idProduct' => request('idProduct'),
             'dateSale' => Carbon::today()->toDateString(),
             'quantity' => request('sale'),

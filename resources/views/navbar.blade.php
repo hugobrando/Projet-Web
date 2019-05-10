@@ -26,7 +26,7 @@
 		  	
 
 			<form class="form-inline my-2 my-lg-0 nav">
-			    <button class="btn btn-success" type="submit">Déconnexion</button>
+			    <button class="btn btn-success" type="submit"><a href="./deconnect" class="deco">Déconnexion</a></button>
 			</form>
 		</nav>
 	</div>
