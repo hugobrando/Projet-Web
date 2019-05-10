@@ -18,8 +18,15 @@ class Product extends Model
     protected $table ='Product'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
     public static function giveAllProductWithStock(){
-    	return self::where('stockProduct', '!=' ,0)
+    	$allProducts = self::where('stockProduct', '!=' ,0)
     			->get(['idProduct','wordingProduct','stockProduct']);
+        $result = [];
+        foreach($allProducts as $element){
+            $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);
+            $element->order = $sumOrderQuantity; //rajoute le nombre de produit en commande pour ce produit
+            $result[] = $element;
+        }
+        return $result;
     }
 
     public static function giveAllProduct(){

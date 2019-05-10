@@ -18,6 +18,7 @@
                   <th scope="col">idProduit</th>
                   <th scope="col">Libellé</th>
                   <th scope="col">Stock</th>
+                  <th scope="col">En Commande</th>
                   <th scope="col" class="align">Vente</th>
                 </tr>
               </thead>
@@ -34,6 +35,7 @@
                       <td>{{$product->idProduct}}</td>
                       <td>{{$product->wordingProduct}}</td>
                       <td>{{$product->stockProduct}}</td>
+                      <td>{{$product->order}}</td>
                       <td>
                         <div class="row justify-content-around">
                           <div class="col-4 ">

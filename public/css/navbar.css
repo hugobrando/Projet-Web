@@ -19,3 +19,8 @@ h1{
 .deco{
 	color: white;
 }
+
+.position{
+	position: absolute;
+	right: 20px;
+}
