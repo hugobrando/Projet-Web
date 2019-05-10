@@ -22,7 +22,7 @@ class OrderController extends Controller
             'idProduct' => ['bail', 'required'],
             'nameProvider' => ['bail', 'required'], //on retournera un erreur comme quoi le champ est vide sur la page
             'order' => ['bail', 'required', 'int'],
-            ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien
+            ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien et on renvoie une erreur
 
     		Order::createOrderProduct($id);
     		return back();

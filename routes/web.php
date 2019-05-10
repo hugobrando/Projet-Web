@@ -14,6 +14,8 @@
 Route::get('/','ConnexionControler@show');
 Route::post('/','ConnexionControler@connect');
 
+Route::get('/createUser','CreateUserController@show');
+Route::post('/createUser','CreateUserController@create');
 
 Route::get('/sale','SaleController@show');
 Route::put('/sale','SaleController@saleProduct');
