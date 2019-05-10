@@ -10,8 +10,9 @@ use App\Order;
 class OrderController extends Controller
 {
     public function show(){
-    	$products = Product::productWithCriticalStock();	
-    	return view('/order')->with(['products' => $products]);
+    	$products = Product::productWithCriticalStock();
+        $stockOk = Product::productWithStockOk();	
+    	return view('/order')->with(['products' => $products, 'stockOk' => $stockOk]);
     }
 
     public function orderProduct(Request $request){
