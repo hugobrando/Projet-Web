@@ -18,7 +18,7 @@ class Sell extends Model
 
 	public static function createSell(){
 		Self::create([
-            'idUser' => auth()->user()->idUser,
+            'idUser' => auth()->guard('user')->user()->idUser,
             'idProduct' => request('idProduct'),
             'dateSale' => Carbon::today()->toDateString(),
             'quantity' => request('sale'),

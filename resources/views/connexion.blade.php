@@ -18,6 +18,11 @@
 	        {{ session('deconnect') }}
 	    </div>
 	@endif
+	@if (session('access'))
+	    <div class="alert alert-success">
+	        {{ session('access') }}
+	    </div>
+	@endif
 
 
 	<div class="container-fluid">
@@ -57,7 +62,7 @@
             			@endif
 						
 						<div class="form-group form-check centrer">
-							<input type="checkbox" class="form-check-input" id="Admin">
+							<input type="checkbox" class="form-check-input" id="Admin" name="admin">
 						    <label class="form-check-label" for="Admin" >Admin</label>
 						    <p id="test"></p>
 						</div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Boss;
 
 class CreateUserController extends Controller
 {
@@ -21,9 +22,14 @@ class CreateUserController extends Controller
 	            'password_confirmation' =>['bail','required'],
 	    	]);
 
-	    	User::createUser();
-
-	    	return 'ok';
+	    	if(request('admin')){ // on crée un boss
+	    		Boss::createBoss();
+	    		return back()->with('create', 'Le boss ' . request('name') . ' '  . request('firstName') . ' a été créé !');
+	    	}
+	    	else{ //on crée un user
+	    		User::createUser();
+	    		return back()->with('create', "L'employé " . request('name') . ' '  . request('firstName') . ' a été créé !');
+	    	}
 	    }
 
     }

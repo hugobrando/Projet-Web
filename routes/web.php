@@ -10,19 +10,25 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/','ConnexionControler@show');
-Route::post('/','ConnexionControler@connect');
+Route::get('/','Auth\LoginController@showForm');
+Route::post('/','Auth\LoginController@selectForm');
 
 Route::get('/deconnect','ConnexionControler@deconnect');
 
 Route::group(['middleware' => 'App\Http\Middleware\Auth'] , function () {
 
-	Route::get('/createUser','CreateUserController@show');
-	Route::post('/createUser','CreateUserController@create');
 
 	Route::get('/sale','SaleController@show');
 	Route::put('/sale','SaleController@saleProduct');
+
+
+
+});
+
+Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
+
+	Route::get('/createUser','CreateUserController@show');
+	Route::post('/createUser','CreateUserController@create');
 
 	Route::get('/order','OrderController@show');
 	Route::put('/order','OrderController@orderProduct');
@@ -35,6 +41,6 @@ Route::group(['middleware' => 'App\Http\Middleware\Auth'] , function () {
 
 
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');

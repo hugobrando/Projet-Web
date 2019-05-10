@@ -16,10 +16,16 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+    {   
+        /*if( $guard == "boss" && Auth::guard($guard)->check()){
+            return redirect('/sale');
         }
+        if( $guard == "user" && Auth::guard($guard)->check()){
+            return redirect('/sale');
+        }
+        if (Auth::guard($guard)->check()) {
+            return redirect('/');
+        }*/
 
         return $next($request);
     }

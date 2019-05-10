@@ -7,6 +7,12 @@
 
 @section('content')
 
+	@if (session('create'))
+	    <div class="alert alert-success">
+	        {{ session('create') }}
+	    </div>
+	@endif
+
 	<div class="container-fluid">
 		<div class="col-lg-3  jumbotron  block">
 			<h1 class="text-primary">Créer un utilisateur</h1>
@@ -50,7 +56,7 @@
 						</div>
 						
 						<div class="form-group form-check centrer">
-							<input type="checkbox" class="form-check-input" id="Admin">
+							<input type="checkbox" class="form-check-input" id="Admin" name="admin">
 						    <label class="form-check-label" for="Admin" >Admin</label>
 						    <p id="test"></p>
 						</div>

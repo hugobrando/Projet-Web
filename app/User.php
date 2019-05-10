@@ -1,16 +1,17 @@
 <?php
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Authenticatable as BasicAuthenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
-class User extends Model implements Authenticatable
+
+
+class User extends Authenticatable 
 {   
-    use BasicAuthenticatable;
+    use Notifiable;
 
-    protected $guard = 'employee';
+    protected $guard = 'user';
 
     protected $fillable = ['name','firstName','mail','password'];
     protected $hidden = ['password'];
@@ -29,20 +30,4 @@ class User extends Model implements Authenticatable
             ]);
     }
 
-    public static function connect(){
-        if(!(empty(request('id')))){
-            $user = self::where('idUser',request('id'))->firstOrFail();
-            if(!(empty($user))){
-                if($user->password == request('mdp')){
-                    return true;
-                }
-                else{
-                    return false;
-                }
-            }
-        }
-    	else{
-    		return false;
-    	}
-    }
 }

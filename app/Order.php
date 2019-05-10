@@ -10,7 +10,7 @@ class Order extends Model
 
     protected $guard = ['idOrder'];
 
-    protected $fillable = ['idUser','idProduct','dateOrder','providerOrder','statusOrder','quantity','dateReceipt'];
+    protected $fillable = ['idBoss','idProduct','dateOrder','providerOrder','statusOrder','quantity','dateReceipt'];
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey ='idOrder';
@@ -18,7 +18,7 @@ class Order extends Model
 
     public static function createOrderProduct(){
 		Self::create([
-            'idUser' => auth()->user()->idUser,
+            'idBoss' => auth()->guard('boss')->user()->idBoss,
             'idProduct' => request('idProduct'),
             'dateOrder' => Carbon::today()->toDateString(),
             'providerOrder' => request('nameProvider'),

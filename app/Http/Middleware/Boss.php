@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class Auth
+class Boss
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,11 @@ class Auth
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->guard('user')->check()){ //si l'utilisateur est connecté en tant que user on accepte 
+        if(auth()->guard('boss')->check()){ //si l'utilisateur est connecté en tant que boss on accepte 
             return $next($request);
         }
         return redirect('/')->with([ // si non on redirige
-                'access' => "Vous devez être connecté en tant qu'employé !",
+                'access' => "Vous devez être connecté en tant que Boss !",
             ]);
     }
 }
