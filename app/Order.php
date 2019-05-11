@@ -27,6 +27,19 @@ class Order extends Model
         ]);
     }
 
+    public static function createOrderOfThisProduct(){
+        $idProduct = Product::getIdProductByWordingProduct(request('wordingProduct'));
+        
+        Self::create([
+            'idBoss' => auth()->guard('boss')->user()->idBoss,
+            'idProduct' => $idProduct,
+            'dateOrder' => Carbon::today()->toDateString(),
+            'providerOrder' => request('nameProvider'),
+            'statusOrder' => "En cours",
+            'quantity' => request('orderProduct'),
+        ]);
+    }
+
 
     //la quantité de tout les commande en cours pour ce produit
     public static function getOrderQuantityById($idProduct){

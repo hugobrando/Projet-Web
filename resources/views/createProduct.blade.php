@@ -24,8 +24,8 @@
 						<div class="form-group">
 							<label for="wordingProduct">Libellé : </label>
 							<input type="text" name="wordingProduct" class="form-control" value="{{old('wordingProduct')}}">
-							@if ($errors->has('wordingProduc'))
-	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('wordingProduc') }} </div>  </small>
+							@if ($errors->has('wordingProduct'))
+	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('wordingProduct') }} </div>  </small>
 	            			@endif
 						</div>
 						<div class="form-group">
@@ -56,9 +56,9 @@
 	            			@endif
 						</div>
 						
-						<div class="form-group form-check centrer">
-							<input type="checkbox" class="form-check-input" id="order" name="order">
-						    <label class="form-check-label" for="order" >Commande en cours</label>
+						<div class="form-group form-check centrer" id="getOrder">
+							<input type="checkbox" class="form-check-input" id="order" name="order" onclick="getOrder()" autocomplete="off">
+						    <label class="form-check-label" for="order"">Commande en cours</label>
 						</div>
 
 						<button type="submit" class="btn btn-primary btn-block" name="create">Comfirmer</button>

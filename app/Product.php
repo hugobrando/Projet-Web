@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Order;
+use App\Category;
 
 class Product extends Model
 {
@@ -16,6 +17,16 @@ class Product extends Model
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey = 'idProduct';
     protected $table ='Product'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
+
+    public static function createProduct(){
+        $category = Category::getIdProductByWordingCategory(request('category'));
+        self::create([
+                'wordingProduct' => request('wordingProduct'),
+                'stockProduct' => request('stock'), 
+                'criticalStockProduct' => request('criticalStock'),
+                'idCategory' => $category, 
+            ]);
+    }
 
     public static function giveAllProductWithStock(){
     	$allProducts = self::where('stockProduct', '!=' ,0)
@@ -69,5 +80,10 @@ class Product extends Model
     public static function incrementProductById($idProduct,$quantity){        
         return self::where('idProduct',$idProduct)
                 ->increment('stockProduct', $quantity);
+    }
+
+    public static function getIdProductByWordingProduct($wordingProduct){
+        $product = self::where('wordingProduct',$wordingProduct)->firstOrFail();
+        return $product->idProduct;
     }
 }

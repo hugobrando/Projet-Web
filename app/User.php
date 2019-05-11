@@ -22,7 +22,7 @@ class User extends Authenticatable
 
 
     public static function createUser(){
-        return self::create([
+        self::create([
                 'name' => request('name'),
                 'firstName' => request('firstName'), 
                 'mail' => request('mail'),

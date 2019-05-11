@@ -22,8 +22,12 @@ class Category extends Model
     }
 
     public static function getCriticalStock($category){
-    	return self::where('wordingCategory',$category)
-    					->get(['criticalStockCategory'])
-    					->sum('criticalStockCategory');
+    	$cat = self::where('wordingCategory',$category)->firstOrFail();
+    	return $cat->criticalStockCategory;
+    }
+
+    public static function getIdProductByWordingCategory($category){
+    	$cat = self::where('wordingCategory',$category)->firstOrFail();
+    	return $cat->idCategory;
     }
 }

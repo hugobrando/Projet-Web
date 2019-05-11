@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Product;
+use App\Order;
 
 class CreateProductController extends Controller
 {
@@ -16,5 +18,25 @@ class CreateProductController extends Controller
     	return Category::getCriticalStock($category);
     }
 
-    // todo création du produit plus prendre en compte si une commande est en cours
+    public function create(Request $request){
+    	if ($request->has('create')) {
+	    	request()->validate([
+	    		'wordingProduct' => ['bail', 'required','string'],
+	            'stock' => ['bail', 'required','int','min:0'], 
+	            'category' => ['bail', 'required','string'],
+	            'criticalStock' => ['bail','required','int'],
+	    	]);
+
+	    	Product::createProduct();
+
+	    	if(request('order')){ // on crée la commande corespondante
+	    		Order::createOrderOfThisProduct();
+	    		return back()->with('create', 'Le produit ' . request('wordingProduct') . ' a été créé ainsi que sa Commande !');
+	    	}
+	    	else{
+	    		return back()->with('create', 'Le produit ' . request('wordingProduct') . ' a été créé !');
+	    	}
+	    }
+
+    }
 }
