@@ -1,0 +1,19 @@
+.block {
+	margin:auto;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+
+h1{
+	text-align: center;
+}
+
+.centrer{
+	margin-top: 10px;
+	text-align: center;
+}
+
+.alert{
+	text-align: center;
+	color: red;
+}

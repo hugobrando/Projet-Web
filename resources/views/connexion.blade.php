@@ -64,7 +64,6 @@
 						<div class="form-group form-check centrer">
 							<input type="checkbox" class="form-check-input" id="Admin" name="admin">
 						    <label class="form-check-label" for="Admin" >Admin</label>
-						    <p id="test"></p>
 						</div>
 				</form>
 

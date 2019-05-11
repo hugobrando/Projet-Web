@@ -38,6 +38,11 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 
 	Route::get('/saleHistory','SaleHistoryController@show');
 
+	Route::get('/createProduct','CreateProductController@show');
+	Route::post('/createProduct','CreateProductController@create');
+
+	Route::get('/createProduct/{category}','CreateProductController@getCriticalStock');
+
 });
 
 

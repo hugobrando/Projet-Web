@@ -3,8 +3,6 @@
 @section('link')
   <link rel="stylesheet" href="{{ URL::asset('css/orderHistory.css') }}" />
 
-  <script type='text/javascript' src="{{ URL::asset('js/orderHistory.js') }}"></script>
-
 @endsection
 
 @section('content')
