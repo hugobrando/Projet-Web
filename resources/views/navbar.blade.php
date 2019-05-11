@@ -32,8 +32,8 @@
 			  </a>
 
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-			    <a class="dropdown-item" href="./order">Passer une commande</a>
-			    <a class="dropdown-item" href="./orderHistory">Commande en cours</a>
+			    <a class="dropdown-item" href="./order">Commande à passer</a>
+			    <a class="dropdown-item" href="./orderHistory">Commande en cours/terminée</a>
 			    <a class="dropdown-item" href="./ignoreProduct">Produit désactivé</a>
 			  </div>
 			</div>

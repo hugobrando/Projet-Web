@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Order;
+use App\Ignore;
 
 
 class OrderController extends Controller
@@ -21,13 +22,21 @@ class OrderController extends Controller
             request()->validate([
             'idProduct' => ['bail', 'required'],
             'nameProvider' => ['bail', 'required'], //on retournera un erreur comme quoi le champ est vide sur la page
-            'order' => ['bail', 'required', 'int'],
+            'order' => ['bail', 'required', 'int','min:0'],
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien et on renvoie une erreur
 
     		Order::createOrderProduct();
-    		return back();
+    		return back()->with('response', 'La commande a été enregistrée !');
     	}
+        else{ //on veut ignorer un produit
+            request()->validate([
+            'idProduct' => ['bail', 'required'],
+            'reasonIgnore' => ['bail', 'required', 'string']
+            ]);
 
+            Ignore::createIgnore();
+            return back()->with('response', 'Le produit a été ignoré !');
+        }
 
     }
 }
