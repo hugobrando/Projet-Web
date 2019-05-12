@@ -20,7 +20,7 @@ class OrderController extends Controller
 
 		if($request->has('orderProduct')){
             request()->validate([
-            'idProduct' => ['bail', 'required'],
+            'wordingProduct' => ['bail', 'required','string'],
             'nameProvider' => ['bail', 'required'], //on retournera un erreur comme quoi le champ est vide sur la page
             'order' => ['bail', 'required', 'int','min:0'],
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien et on renvoie une erreur
@@ -30,7 +30,7 @@ class OrderController extends Controller
     	}
         else{ //on veut ignorer un produit
             request()->validate([
-            'idProduct' => ['bail', 'required'],
+            'wordingProduct' => ['bail', 'required','string'],
             'reasonIgnore' => ['bail', 'required', 'string']
             ]);
 

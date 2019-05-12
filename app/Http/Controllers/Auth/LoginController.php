@@ -42,6 +42,14 @@ class LoginController extends Controller
     }
 
     public function showForm(){
+       if(auth()->guard('user')->check()){ //si l'utilisateur est deja connecté en tant que user on le redirige
+        
+            return redirect('/sale');
+        }
+        else if(auth()->guard('boss')->check()){ // si c'est un boss on le redirige
+
+            return redirect('/order');
+        } // si c'est aucun des deux alors on demande de s'identifier
         return view('connexion');
     }
 

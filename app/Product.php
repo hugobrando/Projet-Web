@@ -30,7 +30,7 @@ class Product extends Model
 
     public static function giveAllProductWithStock(){
     	$allProducts = self::where('stockProduct', '!=' ,0)
-    			->get(['idProduct','wordingProduct','stockProduct']);
+    			->get(['wordingProduct','stockProduct']);
         $result = [];
         foreach($allProducts as $element){
             $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);
@@ -45,7 +45,7 @@ class Product extends Model
     }
 
     public static function saleProduct(){
-    	self::where('idProduct',request('idProduct'))
+    	self::where('wordingProduct',request('wordingProduct'))
                 ->where('stockProduct','>=',(int)request('sale'))  // pour ne jamais avoir de stock negatif
     			->decrement('stockProduct', (int)request('sale'));
     }

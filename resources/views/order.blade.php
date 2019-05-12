@@ -40,8 +40,8 @@
                     {{method_field('PUT')}}
                     {{  csrf_field()  }}
 
-                    <!-- idProduct-->
-                    <input name="idProduct" type="hidden" value="{{$product->idProduct}}">
+                    <!-- wordingProduct-->
+                    <input name="wordingProduct" type="hidden" value="{{$product->wordingProduct}}">
 
                     <tr>
                       <td>{{$product->wordingProduct}}</td>
@@ -93,8 +93,8 @@
                     {{method_field('PUT')}}
                     {{  csrf_field()  }}
 
-                    <!-- idProduct-->
-                    <input name="idProduct" type="hidden" value="{{$product->idProduct}}">
+                    <!-- wordingProduct-->
+                    <input name="wordingProduct" type="hidden" value="{{$product->wordingProduct}}">
 
                     <tr>
                       <td>{{$product->wordingProduct}}</td>

@@ -17,10 +17,10 @@ class SaleController extends Controller
     	if($request->has('saleProduct')){
 
             request()->validate([
-            'idProduct' => ['bail', 'required'],
+            'wordingProduct' => ['bail', 'required','string'],
             'sale' => ['bail', 'required', 'int'],
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien
-
+            
     		Product::saleProduct();
             Sell::createSell();
     		return back();

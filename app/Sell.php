@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\Product;
 
 
 class Sell extends Model
@@ -17,9 +18,10 @@ class Sell extends Model
 	protected $table ='Sell'; //pour ne pas rajouter de s a Sell(s) lorsque l'on fait une requete SQL
 
 	public static function createSell(){
+        $idProduct = Product::getIdProductByWordingProduct(request('wordingProduct'));
 		Self::create([
             'idUser' => auth()->guard('user')->user()->idUser,
-            'idProduct' => request('idProduct'),
+            'idProduct' => $idProduct,
             'dateSale' => Carbon::today()->toDateString(),
             'quantity' => request('sale'),
         ]);

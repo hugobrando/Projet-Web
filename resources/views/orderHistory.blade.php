@@ -28,10 +28,11 @@
                     {{method_field('PUT')}}
                     {{  csrf_field()  }}
 
-                    <!-- idProduct/quantity/idProduct-->
-                    <input name="idOrder" type="hidden" value="{{$order->idOrder}}">
+                    <!-- wordingProduct/dateOrder/providerOrder/quantity-->
+                    <input name="wordingProduct" type="hidden" value="{{$order->wordingProduct}}">
+                    <input name="dateOrder" type="hidden" value="{{$order->dateOrder}}">
+                    <input name="providerOrder" type="hidden" value="{{$order->providerOrder}}">
                     <input name="quantity" type="hidden" value="{{$order->quantity}}">
-                    <input name="idProduct" type="hidden" value="{{$order->idProduct}}">
 
                     <tr>
                       <td>{{$order->wordingProduct}}</td>

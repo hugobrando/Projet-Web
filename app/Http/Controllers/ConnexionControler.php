@@ -10,9 +10,14 @@ class ConnexionControler extends Controller
 {
     
     public function deconnect(){
-        auth()->guard('boss')->logout();
+        if(auth()->guard('user')->check()){ //si l'utilisateur est connecté en tant que user 
+        
         auth()->guard('user')->logout();
+       }
+       else{ // sin non c'est un boos
 
+        auth()->guard('boss')->logout();
+       } 
 
         return redirect('/')->with('deconnect', 'Vous avez été déconnecté !');
     }

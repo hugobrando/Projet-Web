@@ -15,7 +15,6 @@
                   <h1 class="text-primary visu">Saisie des Ventes</h1>
                 </tr>
                 <tr>
-                  <th scope="col">idProduit</th>
                   <th scope="col">Libellé</th>
                   <th scope="col">Stock</th>
                   <th scope="col">En Commande</th>
@@ -28,11 +27,10 @@
                     {{method_field('PUT')}}
                     {{  csrf_field()  }}
 
-                    <!-- idProduct-->
-                    <input name="idProduct" type="hidden" value="{{$product->idProduct}}">
+                    <!-- wordingProduct-->
+                    <input name="wordingProduct" type="hidden" value="{{$product->wordingProduct}}">
 
                     <tr>
-                      <td>{{$product->idProduct}}</td>
                       <td>{{$product->wordingProduct}}</td>
                       <td>{{$product->stockProduct}}</td>
                       <td>{{$product->order}}</td>
