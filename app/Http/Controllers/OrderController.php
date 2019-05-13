@@ -28,16 +28,14 @@ class OrderController extends Controller
     		Order::createOrderProduct();
     		return back()->with('response', 'La commande a été enregistrée !');
     	}
-        else{ //on veut ignorer un produit
+        else if($request->has('ignoreProduct')){ //on veut ignorer un produit
             request()->validate([
             'wordingProduct' => ['bail', 'required','string'],
-            'reasonIgnore' => ['bail', 'required', 'string']
             ]);
 
             Ignore::createIgnore();
-            return back()->with('response', 'Le produit a été ignoré !');
+            return back()->with('response', 'Le produit ' . request('wordingProduct') . ' a été ignoré !');
         }
-
     }
 }
 

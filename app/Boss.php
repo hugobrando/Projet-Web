@@ -11,7 +11,7 @@ class Boss extends Authenticatable
 
     protected $guard = 'boss';
 
-    protected $fillable = ['name','firstName','mail','password'];
+    protected $fillable = ['idBoss','name','firstName','mail','password'];
     protected $hidden = ['password'];
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
@@ -19,12 +19,18 @@ class Boss extends Authenticatable
     protected $table ='Boss'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
 	public static function createBoss(){
-	        return self::create([
-	                'name' => request('name'),
-	                'firstName' => request('firstName'), 
-	                'mail' => request('mail'),
-	                'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
-	            ]);
-	    }
+	    return self::create([
+	            'name' => request('name'),
+	            'firstName' => request('firstName'), 
+	            'mail' => request('mail'),
+	            'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
+	        ]);
+	}
  
+ 	public static function getIdBossByNameAndFirstName($name,$firstName){
+ 		$boss = self::where('name',$name)
+ 					->where('firstName',$firstName)
+ 					->first();
+        return $boss->idoss;
+ 	}
 }

@@ -15,12 +15,12 @@
 
 	@if (session('deconnect'))
 	    <div class="alert alert-success">
-	        {{ session('deconnect') }}
+	        <p>{{ session('deconnect') }}</p>
 	    </div>
 	@endif
 	@if (session('access'))
 	    <div class="alert alert-success">
-	        {{ session('access') }}
+	        <p>{{ session('access') }}</p>
 	    </div>
 	@endif
 

@@ -50,9 +50,15 @@ class Product extends Model
     			->decrement('stockProduct', (int)request('sale'));
     }
 
-    // un produit doit potentiellement etre commander si son stock est inferieur ou égal a son stock critique
+    // un produit doit potentiellement etre commander si son stock est inferieur ou égal a son stock critique et si il n'a pas été deja ignoré
     public static function productWithCriticalStock(){ 
-    	$allProducts = self::get();
+    	$allProducts = self::whereNotExists(function ($query){
+                        $query->select('ignore.idProduct')
+                                ->from('ignore')
+                                ->whereRaw('ignore.idProduct = product.idProduct');
+                            })
+                        ->get();
+
     	$result = [];
 		foreach($allProducts as $element){
             $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);
@@ -65,7 +71,12 @@ class Product extends Model
     }
 
     public static function productWithStockOk(){ 
-        $allProducts = self::get();
+        $allProducts = self::whereNotExists(function ($query){
+                        $query->select('ignore.idProduct')
+                                ->from('ignore')
+                                ->whereRaw('ignore.idProduct = product.idProduct');
+                            })
+                        ->get();        
         $result = [];
         foreach($allProducts as $element){
             $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);

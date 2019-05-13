@@ -15,7 +15,8 @@ class CreateProductController extends Controller
     }
 
     public function getCriticalStock($category){
-    	return Category::getCriticalStock($category);
+    	$stock = Category::getCriticalStock($category);
+    	return response()->json($stock);
     }
 
     public function create(Request $request){

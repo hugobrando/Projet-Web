@@ -33,6 +33,7 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::get('/order','OrderController@show');
 	Route::put('/order','OrderController@orderProduct');
 
+
 	Route::get('/orderHistory','OrderHistoryController@show');
 	Route::put('/orderHistory','OrderHistoryController@finishOrder');
 
@@ -42,6 +43,9 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::post('/createProduct','CreateProductController@create');
 
 	Route::get('/createProduct/{category}','CreateProductController@getCriticalStock');
+
+	Route::get('/ignoreProduct','IgnoreProductController@show');
+	Route::put('/ignoreProduct','IgnoreProductController@ignoreProduct');
 
 });
 
