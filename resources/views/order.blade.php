@@ -8,11 +8,7 @@
 
 @section('content')
 
-@if (session('response'))
-      <div class="alert alert-success">
-          <p>{{ session('response') }}</p>
-      </div>
-@endif
+
 
 
 
@@ -20,9 +16,7 @@
   @if ($errors->has('nameProvider'))
     <div class="alert alert-danger" role="alert"> {{ $errors->first('nameProvider') }} </div>
   @endif
-  @if ($errors->has('reasonIgnore'))
-    <div class="alert alert-danger" role="alert"> {{ $errors->first('reasonIgnore') }} </div>
-  @endif
+
     <div class="row">
         <div class="col-12">
             <table class="table table-striped visu jumbotron" >

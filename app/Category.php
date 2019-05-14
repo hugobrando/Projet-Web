@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Product ;
 
 class Category extends Model
 {
@@ -26,8 +27,15 @@ class Category extends Model
     	return $cat->criticalStockCategory;
     }
 
-    public static function getIdProductByWordingCategory($category){
+    public static function getIdCategoryByWordingCategory($category){
     	$cat = self::where('wordingCategory',$category)->firstOrFail();
     	return $cat->idCategory;
     }
+
+    public static function  getAllProductOfThisCategory($category){
+        return self::where('wordingCategory',$category)
+                    ->join('product','product.idCategory','=','category.idCategory')
+                    ->get(['wordingProduct']);
+    }
+
 }

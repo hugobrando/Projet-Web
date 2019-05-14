@@ -31,6 +31,6 @@ class Boss extends Authenticatable
  		$boss = self::where('name',$name)
  					->where('firstName',$firstName)
  					->first();
-        return $boss->idoss;
+        return $boss->idBoss;
  	}
 }

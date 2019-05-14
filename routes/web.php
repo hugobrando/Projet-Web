@@ -41,8 +41,15 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 
 	Route::get('/createProduct','CreateProductController@show');
 	Route::post('/createProduct','CreateProductController@create');
+	Route::put('/createProduct','CreateProductController@update');
 
+	// route ajax
 	Route::get('/createProduct/{category}','CreateProductController@getCriticalStock');
+	Route::get('/modifyProduct/category/{category}','CreateProductController@getProducts');
+	Route::get('/modifyProduct/product/{product}','CreateProductController@getProduct');
+	Route::get('/category','CreateProductController@getCategories');
+
+
 
 	Route::get('/ignoreProduct','IgnoreProductController@show');
 	Route::put('/ignoreProduct','IgnoreProductController@ignoreProduct');

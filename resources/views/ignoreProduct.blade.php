@@ -8,6 +8,12 @@
 
 @section('content')
 
+@if (session('response'))
+      <div class="alert alert-success">
+          <p>{{ session('response') }}</p>
+      </div>
+@endif
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -43,7 +49,7 @@
                       <td> 
                       	<div class="row justify-content-center">
                           <div class="col-7 input-group">
-                          	<textarea name="reasonIgnore" class="form-control" placeholder="{{$product->reasonIgnore}}" rows="2" cols="50"></textarea>
+                          	<textarea name="reasonIgnore" class="form-control" placeholder="Raison de la désactivation" rows="2" cols="50">{{$product->reasonIgnore}}</textarea>
                           </div>
                           <div class="col-2">
                             <button type="submit" class="btn btn-primary" name="newReasonProduct">Editer</button>

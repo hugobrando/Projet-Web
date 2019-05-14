@@ -36,4 +36,12 @@ class Ignore extends Model
             ->where('idBoss',$idBoss)
             ->update(['reasonIgnore' => request('reasonIgnore')]);
     }
+
+    public static function deleteIgnore(){ 
+        $idProduct = Product::getIdProductByWordingProduct(request('wordingProduct'));
+        $idBoss = Boss::getIdBossByNameAndFirstName(request('name'),request('firstName'));
+        self::where('idProduct',$idProduct)
+            ->where('idBoss',$idBoss)
+            ->delete();
+    }
 }

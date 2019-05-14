@@ -38,6 +38,42 @@ class CreateProductController extends Controller
 	    		return back()->with('create', 'Le produit ' . request('wordingProduct') . ' a été créé !');
 	    	}
 	    }
+	}
 
+
+	public function update(Request $request){
+	    if ($request->has('update')) {
+	    	request()->validate([
+	    		'newWordingProduct' => ['bail', 'required','string'],
+	            'newStockProduct' => ['bail', 'required','int','min:0'], 
+	            'newCategory' => ['bail', 'required','string'],
+	            'newCriticalStockProduct' => ['bail', 'required','int','min:0'],
+	            'oldWordingProduct' => ['bail', 'required','string'],
+	            'oldStockProduct' => ['bail', 'required','int','min:0'], 
+	            'oldCategory' => ['bail', 'required','string'],
+	            'oldCriticalStockProduct' => ['bail', 'required','int','min:0'],
+	    	]);
+
+	    	Product::updateProduct();
+	    	return back()->with('create', 'Le produit ' . request('newWordingProduct') . ' a été modifé !');
+		}
+
+    }
+
+    public function getProducts($category)
+    {
+		$products = Category::getAllProductOfThisCategory($category);
+    	return response()->json($products);
+    }
+
+    public function getProduct($product)
+    {
+		$result = Product::getProductByWordingProduct($product);
+    	return response()->json($result);
+    }
+
+    public function getCategories(){
+    	$categories = Category::getAllCategory();
+    	return response()->json($categories);
     }
 }

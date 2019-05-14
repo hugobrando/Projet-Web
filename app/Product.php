@@ -19,13 +19,29 @@ class Product extends Model
     protected $table ='Product'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
     public static function createProduct(){
-        $category = Category::getIdProductByWordingCategory(request('category'));
+        $category = Category::getIdCategoryByWordingCategory(request('category'));
         self::create([
                 'wordingProduct' => request('wordingProduct'),
                 'stockProduct' => request('stock'), 
                 'criticalStockProduct' => request('criticalStock'),
                 'idCategory' => $category, 
             ]);
+    }
+
+    public static function updateProduct(){
+        $oldIdCategory = Category::getIdCategoryByWordingCategory(request('oldCategory'));
+        $newIdCategory = Category::getIdCategoryByWordingCategory(request('newCategory'));
+
+        self::where('wordingProduct',request('oldWordingProduct'))
+            ->where('stockProduct',request('oldStockProduct'))
+            ->where('criticalStockProduct',request('oldCriticalStockProduct'))
+            ->where('idCategory',$oldIdCategory)
+            ->firstOrFail()  // pour ne rien faire si entre temps un attribut a changé notement le stock
+            ->update(['wordingProduct' => request('newWordingProduct'),
+                        'stockProduct' => request('newStockProduct'),
+                        'criticalStockProduct' => request('newCriticalStockProduct'),
+                        'idCategory' => $newIdCategory
+                    ]);
     }
 
     public static function giveAllProductWithStock(){
@@ -96,5 +112,11 @@ class Product extends Model
     public static function getIdProductByWordingProduct($wordingProduct){
         $product = self::where('wordingProduct',$wordingProduct)->firstOrFail();
         return $product->idProduct;
+    }
+
+    public static function getProductByWordingProduct($wordingProduct){
+        return self::where('wordingProduct',$wordingProduct)
+                        ->join('category','category.idCategory','=','product.idCategory')
+                        ->get(['wordingProduct','stockProduct','criticalStockProduct','category.wordingCategory']);
     }
 }
