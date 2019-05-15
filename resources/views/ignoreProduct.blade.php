@@ -56,9 +56,19 @@
                           </div>
                         </div>
                       </td>
-                      <td><button type="submit" class="btn btn-success" name="activeProduct">X</button></td>
-                    </tr>
                   </form>
+                      <td>
+                        <form method="post" name="delete">
+                          {{method_field('DELETE')}}
+                          {{  csrf_field()  }}
+                          <!-- wordingProduct/name/firstName-->
+                          <input name="wordingProduct" type="hidden" value="{{$product->wordingProduct}}">
+                          <input name="name" type="hidden" value="{{$product->name}}">
+                          <input name="firstName" type="hidden" value="{{$product->firstName}}">
+                          <button type="submit" class="btn btn-success" name="activeProduct">X</button>
+                        </form>
+                      </td>
+                    </tr>
                 @endforeach
               </tbody>
             </table>

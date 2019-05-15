@@ -40,12 +40,13 @@
 
 			<div class="dropdown">
 			  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Ajouter
+			    Ajouter/Modifier
 			  </a>
 
 			  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 			    <a class="dropdown-item" href="./createProduct">Un produit</a>
 			    <a class="dropdown-item" href="./createUser">Un compte</a>
+			    <a class="dropdown-item" href="./editCategory">Une categorie</a>
 			  </div>
 			</div>
 		  	

@@ -38,4 +38,19 @@ class Category extends Model
                     ->get(['wordingProduct']);
     }
 
+    public static function createCategory(){
+        self::create([
+                'wordingCategory' => request('wordingCategory'),
+                'criticalStockCategory' => request('criticalStockCategory'), 
+            ]);
+    }
+
+    public static function updateCategory(){
+        self::where('wordingCategory',request('oldCategory'))
+            ->firstOrFail()  // pour ne rien faire si entre temps qqun a changé le nom de la categorie
+            ->update(['wordingCategory' => request('newCategory'),
+                        'criticalStockCategory' => request('newCriticalStockCategory'),
+                    ]);
+    }
+
 }

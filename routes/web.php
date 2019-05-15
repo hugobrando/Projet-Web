@@ -49,10 +49,13 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::get('/modifyProduct/product/{product}','CreateProductController@getProduct');
 	Route::get('/category','CreateProductController@getCategories');
 
-
+	Route::get('/editCategory','EditCategoryController@show');
+	Route::post('/editCategory','EditCategoryController@createCategory');
+	Route::put('/editCategory','EditCategoryController@updateCategory');
 
 	Route::get('/ignoreProduct','IgnoreProductController@show');
 	Route::put('/ignoreProduct','IgnoreProductController@ignoreProduct');
+	Route::delete('/ignoreProduct','IgnoreProductController@deleteIgnoreProduct');
 
 });
 

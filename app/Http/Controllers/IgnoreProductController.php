@@ -23,7 +23,10 @@ class IgnoreProductController extends Controller
     		Ignore::updateIgnore();
     		return back()->with('response', 'La raison a été enregistrée !');
     	}
-        else if($request->has('activeProduct')){ //on veut activer un produit
+    }
+
+    public function deleteIgnoreProduct(Request $request){
+         if($request->has('activeProduct')){ //on veut activer un produit
             request()->validate([
             'name' => ['bail', 'required','string'], 
             'firstName' => ['bail', 'required', 'string'],
