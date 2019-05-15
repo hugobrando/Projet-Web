@@ -1,4 +1,4 @@
-@extends('navbar')
+@extends('nav.navbarEmployee')
 
 @section('link')
   <link rel="stylesheet" href="{{ URL::asset('css/sale.css') }}" />
@@ -6,6 +6,13 @@
 @endsection
 
 @section('content')
+
+@if (session('response'))
+      <div class="alert alert-success">
+          {{ session('response') }}
+      </div>
+@endif
+
 <div class="container">
     <div class="row">
         <div class="col-12">

@@ -23,7 +23,7 @@ class SaleController extends Controller
             
     		Product::saleProduct();
             Sell::createSell();
-    		return back();
+    		return back()->with('response','La vente du produit ' . request('wordingProduct') . ' (x' . request('sale') . ' exemplaire) a été enregistré ');
     	}
     }
 }

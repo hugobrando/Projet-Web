@@ -3,6 +3,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Log;
 
 
 
@@ -22,12 +23,21 @@ class User extends Authenticatable
 
 
     public static function createUser(){
-        self::create([
+        // faire un try catch car il y a possibilité d'erreur vis a vis du trigger fait dans la base de donnée
+        try{
+            self::create([
                 'name' => request('name'),
                 'firstName' => request('firstName'), 
                 'mail' => request('mail'),
                 'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
             ]);
+            return true;
+        }
+        catch(\Exception $exeption)
+        {
+            Log::error('Il existe déja un employé avec ce nom et prenom');
+            return false;
+        }
     }
 
 }

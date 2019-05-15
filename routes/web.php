@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/','Auth\LoginController@showForm');
 Route::post('/','Auth\LoginController@selectForm');
 
@@ -58,10 +59,3 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::delete('/ignoreProduct','IgnoreProductController@deleteIgnoreProduct');
 
 });
-
-
-
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');

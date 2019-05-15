@@ -1,4 +1,4 @@
-@extends('navbar')
+@extends('nav.navbarBoss')
 
 @section('link')
 	<link rel="stylesheet" href="{{ URL::asset('css/createProduct.css') }}" />

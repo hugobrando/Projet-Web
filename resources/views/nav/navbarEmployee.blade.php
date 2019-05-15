@@ -17,8 +17,8 @@
 <body>
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-xl navbar-dark bg-primary fond ">
-			<a class="navbar-brand" href="#">
-				<img src="image/logo.png" alt="Le logo du site" class="taille logo">
+			<a class="navbar-brand" href="./sale">
+				<img src="image/logo.png" alt="Le logo du site" class="taille">
 			</a>
 
 			<a class="navbar-brand" href="#"> 
@@ -29,46 +29,6 @@
 		  </button>
 
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-		    <ul class="navbar-nav mr-auto">
-
-
-		      <li class="nav-item active">
-				<div class="dropdown">
-				  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Commande
-				  </a>
-
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				    <a class="dropdown-item" href="./order">Commande à passer</a>
-				    <a class="dropdown-item" href="./orderHistory">Commande en cours/terminée</a>
-				    <a class="dropdown-item" href="./ignoreProduct">Produit désactivé</a>
-				  </div>
-				</div>
-		      </li>
-
-
-		      <li class="nav-item">
-		        <div class="dropdown">
-				  <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Ajouter/Modifier
-				  </a>
-
-				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				    <a class="dropdown-item" href="./createProduct">Un produit</a>
-				    <a class="dropdown-item" href="./createUser">Un compte</a>
-				    <a class="dropdown-item" href="./editCategory">Une categorie</a>
-				  </div>
-				</div>
-		      </li>
-
-
-		      <li class="nav-item dropdown">
-		        <button class="btn btn-primary" type="button"><a href="./saleHistory" class="deco">Historique des ventes</a></button>
-		      </li>
-
-
-		      
-		    </ul>
 		    <form class="form-inline my-2 my-lg-0 nav">
 			    <button class="btn btn-success position" type="submit"><a href="./deconnect" class="deco">Déconnexion</a></button>
 			</form>

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Log;
 
 class Boss extends Authenticatable
 {   
@@ -19,12 +20,21 @@ class Boss extends Authenticatable
     protected $table ='Boss'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
 	public static function createBoss(){
-	    return self::create([
-	            'name' => request('name'),
-	            'firstName' => request('firstName'), 
-	            'mail' => request('mail'),
-	            'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
-	        ]);
+		// faire un try catch car il y a possibilité d'erreur vis a vis du trigger fait dans la base de donnée
+        try{
+		    self::create([
+		            'name' => request('name'),
+		            'firstName' => request('firstName'), 
+		            'mail' => request('mail'),
+		            'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
+		        ]);
+		    return true;
+        }
+        catch(\Exception $exeption)
+        {
+            Log::error('Il existe déja un boss avec ce nom et prenom');
+            return false;
+        }
 	}
  
  	public static function getIdBossByNameAndFirstName($name,$firstName){

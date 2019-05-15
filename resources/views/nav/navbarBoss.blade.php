@@ -18,7 +18,7 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-xl navbar-dark bg-primary fond ">
 			<a class="navbar-brand" href="#">
-				<img src="image/logo.png" alt="Le logo du site" class="taille logo">
+				<img src="image/logo.png" alt="Le logo du site" class="taille">
 			</a>
 
 			<a class="navbar-brand" href="#"> 
