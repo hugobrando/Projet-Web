@@ -65,13 +65,13 @@ class LoginController extends Controller
     public function bossLogin(Request $request){
         request()->validate([
             'id' => ['bail', 'required','int'],//on retournera un erreur comme quoi le champ est vide ou que ce n'est pas un entier sur la page 
-            'mdp' => ['bail', 'required'], //on retournera un erreur comme quoi le champ est vide sur la page
-            'mdpConfirm' => ['bail', 'required'],//on retournera un erreur comme quoi le champ est vide sur la page
+            'password' => ['bail','required','confirmed'], //on retournera un erreur comme quoi le champ est vide sur la page ou que les deux mot de passe ne sont pas les même
+            'password_confirmation' =>['bail','required'],//on retournera un erreur comme quoi le champ est vide sur la page
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien et on renvoie une erreur
 
         $resultat = auth()->guard('boss')->attempt([
                                                 'idBoss' => request('id'),
-                                                'password' => request('mdp'),
+                                                'password' => request('password'),
                                             ]);
 
         if($resultat){
@@ -89,13 +89,13 @@ class LoginController extends Controller
     public function userLogin(Request $request){
         request()->validate([
             'id' => ['bail', 'required','int'],//on retournera un erreur comme quoi le champ est vide ou que ce n'est pas un entier sur la page 
-            'mdp' => ['bail', 'required'], //on retournera un erreur comme quoi le champ est vide sur la page
-            'mdpConfirm' => ['bail', 'required'],//on retournera un erreur comme quoi le champ est vide sur la page
+            'password' => ['bail','required','confirmed'], //on retournera un erreur comme quoi le champ est vide sur la page ou que les deux mot de passe ne sont pas les même
+            'password_confirmation' =>['bail','required'],//on retournera un erreur comme quoi le champ est vide sur la page
             ]); //on verifie que les champs ne sont pas vides, si ils le sont on ne fait rien et on renvoie une erreur
 
         $resultat = auth()->guard('user')->attempt([
                                                 'idUser' => request('id'),
-                                                'password' => request('mdp'),
+                                                'password' => request('password'),
                                             ]);
 
         if($resultat){

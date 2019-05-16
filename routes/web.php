@@ -30,6 +30,7 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 
 	Route::get('/createUser','CreateUserController@show');
 	Route::post('/createUser','CreateUserController@create');
+	Route::put('/createUser','CreateUserController@edit');
 
 	Route::get('/order','OrderController@show');
 	Route::put('/order','OrderController@orderProduct');
@@ -45,10 +46,11 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::put('/createProduct','CreateProductController@update');
 
 	// route ajax
-	Route::get('/createProduct/{category}','CreateProductController@getCriticalStock');
-	Route::get('/modifyProduct/category/{category}','CreateProductController@getProducts');
-	Route::get('/modifyProduct/product/{product}','CreateProductController@getProduct');
-	Route::get('/category','CreateProductController@getCategories');
+	Route::get('/createProduct/{category}','CreateProductController@getCriticalStock'); //donne le stock critique d'une categorie
+	Route::get('/modifyProduct/category/{category}','CreateProductController@getProducts'); // donne tous les produits d'une categorie
+	Route::get('/modifyProduct/product/{product}','CreateProductController@getProduct'); // donne les informations d'un produit
+	Route::get('/category','CreateProductController@getCategories'); // donne toutes les categories
+	Route::get('/boss','CreateUserController@getBoss'); // donne les informations du boss qui est conecté
 
 	Route::get('/editCategory','EditCategoryController@show');
 	Route::post('/editCategory','EditCategoryController@createCategory');

@@ -39,17 +39,17 @@
 	            			@endif
 						</div>
 						<div class="form-group">
-							<label for="mdp">Mot de passe : </label>
-							<input type="password" name="mdp" id="mdp" class="form-control">
-							@if ($errors->has('mdp'))
-	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('mdp') }} </div>  </small>
+							<label for="password">Mot de passe : </label>
+							<input type="password" name="password" id="password" class="form-control">
+							@if ($errors->has('password'))
+	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('password') }} </div>  </small>
 	            			@endif
 						</div>
 						<div class="form-group">
-							<label for="mdpConfirm">Comfirmation Mot de passe : </label>
-							<input type="password" name="mdpConfirm" id="mdpConfimation" class="form-control" oninput="checkMdp()">
-							@if ($errors->has('mdpConfirm'))
-	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('mdpConfirm') }} </div>  </small>
+							<label for="password_confirmation">Comfirmation Mot de passe : </label>
+							<input type="password" name="password_confirmation" id="password_confirmation" class="form-control" oninput="checkMdp()">
+							@if ($errors->has('password_confirmation'))
+	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('password_confirmation') }} </div>  </small>
 	            			@endif
 						    <p class="alert" id="falseMdp"></p>
 

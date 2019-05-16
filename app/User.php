@@ -29,7 +29,7 @@ class User extends Authenticatable
                 'name' => request('name'),
                 'firstName' => request('firstName'), 
                 'mail' => request('mail'),
-                'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
+                'password' => bcrypt(request('password')), ///fonction de cryptage pour cacher le mdp
             ]);
             return true;
         }

@@ -26,7 +26,7 @@ class Boss extends Authenticatable
 		            'name' => request('name'),
 		            'firstName' => request('firstName'), 
 		            'mail' => request('mail'),
-		            'password' => bcrypt(request('password')), //fonction de hachage de Laravel pour cacher le mdp
+		            'password' => bcrypt(request('password')), //fonction de cryptage pour cacher le mdp
 		        ]);
 		    return true;
         }
@@ -36,11 +36,39 @@ class Boss extends Authenticatable
             return false;
         }
 	}
+
+	public static function updateBoss(){
+		// faire un try catch car il y a possibilité d'erreur vis a vis du trigger fait dans la base de donnée
+        try{
+        	self::where('idBoss', request('id'))
+            ->update(['name' => request('name'),
+                    'firstName' => request('firstName'),
+                    'mail' => request('mail'),
+                    ]);
+		    return true;
+        }
+        catch(\Exception $exeption)
+        {
+            Log::error('Il existe déja un boss avec ce nom et prenom');
+            return false;
+        }
+	}
+
+	public static function updateBossPassword(){
+		self::where('idBoss', request('id'))
+            ->update(['password' => bcrypt(request('password')), //fonction de cryptage pour cacher le mdp
+                    ]);
+	}
  
  	public static function getIdBossByNameAndFirstName($name,$firstName){
  		$boss = self::where('name',$name)
  					->where('firstName',$firstName)
  					->first();
         return $boss->idBoss;
+ 	}
+
+ 	public static function getBoss(){
+ 		return self::where('idBoss',auth()->guard('boss')->user()->idBoss)
+ 					->get(['idBoss','name','firstName','mail']);
  	}
 }
