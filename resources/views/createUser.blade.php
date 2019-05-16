@@ -81,7 +81,7 @@
 							</div>
 
 							<div class="form-group form-check centrer" id="getEmployee">
-								<input type="checkbox" class="form-check-input" id="employee" name="employee" onclick="getEmployee()" autocomplete="off" value="employee">
+								<input type="checkbox" class="form-check-input" id="employee" name="employee" onclick="getEmployees()" autocomplete="off" value="employee">
 							    <label class="form-check-label" for="employee"">Compte employé</label>
 							</div>
 										

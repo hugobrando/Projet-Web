@@ -40,4 +40,38 @@ class User extends Authenticatable
         }
     }
 
+    public static function updateUser(){
+        // faire un try catch car il y a possibilité d'erreur vis a vis du trigger fait dans la base de donnée
+        try{
+            self::where('idUser', request('id'))
+            ->update(['name' => request('name'),
+                    'firstName' => request('firstName'),
+                    'mail' => request('mail'),
+                    ]);
+            return true;
+        }
+        catch(\Exception $exeption)
+        {
+            Log::error('Il existe déja un employé avec ce nom et prenom');
+            return false;
+        }
+    }
+
+    public static function updateUserPassword(){
+        self::where('idUser', request('id'))
+            ->update(['password' => bcrypt(request('password')), //fonction de cryptage pour cacher le mdp
+                    ]);
+    }
+
+
+    public static function getEmployees(){
+        return self::orderby('firstName')
+                    ->orderby('name')
+                    ->get(['idUser','name','firstName']);
+    }
+
+    public static function getEmployee($id){
+        return self::where('idUser',$id)
+                    ->get(['idUser','name','firstName','mail']);
+    }
 }

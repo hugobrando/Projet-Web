@@ -51,6 +51,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Boss'] , function () {
 	Route::get('/modifyProduct/product/{product}','CreateProductController@getProduct'); // donne les informations d'un produit
 	Route::get('/category','CreateProductController@getCategories'); // donne toutes les categories
 	Route::get('/boss','CreateUserController@getBoss'); // donne les informations du boss qui est conecté
+	Route::get('/employees','CreateUserController@getEmployees'); // donne tous les employés
+	Route::get('/employee/{id}','CreateUserController@getEmployee'); // donne les informations d'un employé
 
 	Route::get('/editCategory','EditCategoryController@show');
 	Route::post('/editCategory','EditCategoryController@createCategory');
