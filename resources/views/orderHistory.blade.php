@@ -3,6 +3,8 @@
 @section('link')
   <link rel="stylesheet" href="{{ URL::asset('css/orderHistory.css') }}" />
 
+  <script type='text/javascript' src="{{ URL::asset('js/orderHistory.js') }}"></script>
+
 @endsection
 
 @section('content')
@@ -53,7 +55,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <table class="table table-striped visu jumbotron">
+            <table class="table table-striped visu jumbotron" id="table_id">
               <thead>
                 <tr>
                   <h1 class="text-primary visu">Commande Terminée</h1>

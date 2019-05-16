@@ -3,7 +3,6 @@
 @section('link')
   <link rel="stylesheet" href="{{ URL::asset('css/order.css') }}" />
 
-
 @endsection
 
 @section('content')
@@ -19,7 +18,7 @@
 
     <div class="row">
         <div class="col-12">
-            <table class="table table-striped visu jumbotron" >
+            <table class="table table-striped visu jumbotron">
               <thead>
                 <tr>
                   <h1 class="text-primary visu">Produit à commander</h1>

@@ -25,7 +25,9 @@ class CreateUserController extends Controller
 	    	if(request('admin')){ // on crée un boss
 	    		$result = Boss::createBoss();
 	    		if($result){
-	    			return back()->with('create', "Le boss " . request('name') . ' '  . request('firstName') . ' a été créé !');
+	    			$id = Boss::getIdBossByNameAndFirstName(request('name'),request('firstName'));
+	    			return back()->with('create', "Le boss " . request('name') . ' '  . request('firstName') . ' a été créé !')
+	    							->with('account',"L'identifiant est : " . $id . " et le mot de passe est : " . request('password'));
 	    		}
 	    		else{
 	    			return back()->with('create', "Il existe déja un boss avec ce nom et prenom !");
@@ -34,7 +36,9 @@ class CreateUserController extends Controller
 	    	else{ //on crée un user
 	    		$result = User::createUser();
 	    		if($result){
-	    			return back()->with('create', "L'employé " . request('name') . ' '  . request('firstName') . ' a été créé !');
+	    			$id = User::getIdUserByNameAndFirstName(request('name'),request('firstName'));
+	    			return back()->with('create', "L'employé " . request('name') . ' '  . request('firstName') . ' a été créé !')
+	    							->with('account',"L'identifiant est : " . $id . " et le mot de passe est : " . request('password'));
 	    		}
 	    		else{
 	    			return back()->with('create', "Il existe déja un employé avec ce nom et prenom !");

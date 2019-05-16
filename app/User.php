@@ -74,4 +74,11 @@ class User extends Authenticatable
         return self::where('idUser',$id)
                     ->get(['idUser','name','firstName','mail']);
     }
+
+    public static function getIdUserByNameAndFirstName($name,$firstName){
+        $user = self::where('name',$name)
+                    ->where('firstName',$firstName)
+                    ->first();
+        return $user->idUser;
+    }
 }

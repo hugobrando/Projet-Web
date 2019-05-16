@@ -3,6 +3,7 @@
 @section('link')
   <link rel="stylesheet" href="{{ URL::asset('css/saleHistory.css') }}" />
 
+  <script type='text/javascript' src="{{ URL::asset('js/saleHistory.js') }}"></script>
 
 @endsection
 
@@ -11,7 +12,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <table class="table table-striped visu jumbotron">
+            <table class="table table-striped visu jumbotron" id="table_id">
               <thead>
                 <tr>
                   <h1 class="text-primary visu">Historique des ventes</h1>
@@ -20,7 +21,7 @@
                   <th scope="col">Libellé du produit</th>
                   <th scope="col">Vendeur</th>
                   <th scope="col">Quantité</th>
-                  <th scope="col" class="align">Date de Vente</th>
+                  <th scope="col" class="align" data-class-name="priority">Date de Vente</th>
                 </tr>
               </thead>
               <tbody>

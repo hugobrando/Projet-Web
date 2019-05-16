@@ -14,6 +14,11 @@
 	        {{ session('create') }}
 	    </div>
 	@endif
+	@if (session('account'))
+	    <div class="alert alert-success">
+	        {{ session('account') }}
+	    </div>
+	@endif
 
 	<div class="container-fluid">
 		<div class="row">
