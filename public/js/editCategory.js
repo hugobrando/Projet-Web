@@ -18,6 +18,6 @@ function getCriticalStock(){
 				 	+'</div>';
 		}
   	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/createProduct/"+category, true); // envoie le stock critique pour cette categorie
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/createProduct/"+category, true); // envoie le stock critique pour cette categorie
   	xhttp.send();
 }

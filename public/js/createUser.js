@@ -41,7 +41,7 @@ function myAccount(){
 								+'</div>';
 					}
 				};
-				xhttp.open("GET", "http://localhost/Projet-Web/public/boss", true);
+				xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/boss", true);
 				xhttp.send();
 
 				
@@ -73,7 +73,7 @@ function changePassword(){
 				 	+'</div>';
 		}
 	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/boss", true);
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/boss", true);
 	xhttp.send();
 
 }
@@ -109,7 +109,7 @@ function getEmployees(){
 
 					}
 			  	};
-				xhttp.open("GET", "http://localhost/Projet-Web/public/employees", true);
+				xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/employees", true);
 			  	xhttp.send();
 
 				
@@ -160,7 +160,7 @@ function showEmployee(){
 
 		}
   	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/employee/"+selectEmployee, true);
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/employee/"+selectEmployee, true);
   	xhttp.send();
 }
 
@@ -188,7 +188,7 @@ function changePasswordEmployee(){
 				 	+'</div>';
 		}
 	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/employee/"+selectEmployee, true);
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/employee/"+selectEmployee, true);
 	xhttp.send();
 
 }

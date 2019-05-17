@@ -59,7 +59,7 @@
 							    <label class="form-check-label" for="order"">Commande en cours</label>
 							</div>
 
-							<button type="submit" class="btn btn-primary btn-block" name="create">Comfirmer</button>
+							<button type="submit" class="btn btn-primary btn-block" name="create">Confirmer</button>
 
 					</form>
 

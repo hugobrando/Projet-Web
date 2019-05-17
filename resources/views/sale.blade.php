@@ -47,7 +47,7 @@
                             <input type="number" name="sale" min="0" max="{{$product->stockProduct}}" class="form-control tailleInputStock">
                           </div>
                           <div class="col-4">
-                            <button type="submit" class="btn btn-primary" name="saleProduct">Comfirmer la vente</button>
+                            <button type="submit" class="btn btn-primary" name="saleProduct">Confirmer la vente</button>
                           </div>
                         </div>
                       </td>

@@ -14,7 +14,7 @@ class Category extends Model
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey ='idCategory';
-    protected $table ='Category'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
+    protected $table ='category'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
 
     public static function getAllCategory(){

@@ -16,7 +16,7 @@ class Sell extends Model
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey = 'idProduct';
-	protected $table ='Sell'; //pour ne pas rajouter de s a Sell(s) lorsque l'on fait une requete SQL
+	protected $table ='sell'; //pour ne pas rajouter de s a Sell(s) lorsque l'on fait une requete SQL
 
 	public static function createSell(){
         // faire un try catch car il y a possibilité d'erreur vis a vis du trigger fait dans la base de donnée

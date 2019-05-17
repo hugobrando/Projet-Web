@@ -53,7 +53,7 @@
                             <input type="text" name="nameProvider" class="form-control tailleInputNameProvider" placeholder="Nom du fournisseur">
                           </div>
                           <div class="col-5">
-                            <button type="submit" class="btn btn-primary" name="orderProduct">Comfirmer la commande</button>
+                            <button type="submit" class="btn btn-primary" name="orderProduct">Confirmer la commande</button>
                           </div>
                         </div>
                       </td>
@@ -106,7 +106,7 @@
                             <input type="text" name="nameProvider" class="form-control tailleInputNameProvider" placeholder="Nom du fournisseur">
                           </div>
                           <div class="col-5">
-                            <button type="submit" class="btn btn-primary" name="orderProduct">Comfirmer la commande</button>
+                            <button type="submit" class="btn btn-primary" name="orderProduct">Confirmer la commande</button>
                           </div>
                         </div>
                       </td>

@@ -16,7 +16,7 @@ class Product extends Model
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
     protected $primaryKey = 'idProduct';
-    protected $table ='Product'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
+    protected $table ='product'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
     public static function createProduct(){
         $category = Category::getIdCategoryByWordingCategory(request('category'));
@@ -68,12 +68,16 @@ class Product extends Model
 
     // un produit doit potentiellement etre commander si son stock est inferieur ou égal a son stock critique et si il n'a pas été deja ignoré
     public static function productWithCriticalStock(){ 
-    	$allProducts = self::whereNotExists(function ($query){
+    	$allProducts = self::whereNotIn('idProduct', Ignore::select('idProduct'))->get();
+
+        /*
+//ne marche pas pour postgre
+        self::whereNotExists(function ($query){
                         $query->select('ignore.idProduct')
                                 ->from('ignore')
-                                ->whereRaw('ignore.idProduct = product.idProduct');
+                                ->whereRaw('ignore.idProduct = product.idProduct'); 
                             })
-                        ->get();
+                        ->get();*/
 
     	$result = [];
 		foreach($allProducts as $element){
@@ -87,12 +91,16 @@ class Product extends Model
     }
 
     public static function productWithStockOk(){ 
-        $allProducts = self::whereNotExists(function ($query){
+        $allProducts =  self::whereNotIn('idProduct', Ignore::select('idProduct'))->get();
+
+         /*
+//ne marche pas pour postgre
+         self::whereNotExists(function ($query){
                         $query->select('ignore.idProduct')
                                 ->from('ignore')
                                 ->whereRaw('ignore.idProduct = product.idProduct');
                             })
-                        ->get();        
+                        ->get();  */      
         $result = [];
         foreach($allProducts as $element){
             $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);

@@ -38,7 +38,7 @@
 		            			@endif
 							</div>
 
-							<button type="submit" class="btn btn-primary btn-block" name="create">Comfirmer</button>
+							<button type="submit" class="btn btn-primary btn-block" name="create">Confirmer</button>
 
 					</form>
 

@@ -48,7 +48,7 @@
 	            			@endif
 						</div>
 						<div class="form-group">
-							<label for="password_confirmation">Comfirmation Mot de passe : </label>
+							<label for="password_confirmation">Confirmation Mot de passe : </label>
 							<input type="password" name="password_confirmation" id="password_confirmation" class="form-control" oninput="checkMdp()">
 							@if ($errors->has('password_confirmation'))
 	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('password_confirmation') }} </div>  </small>
@@ -57,7 +57,7 @@
 
 						</div>
 
-						<button type="submit" class="btn btn-primary btn-block" name="connect">Comfirmer</button>
+						<button type="submit" class="btn btn-primary btn-block" name="connect">Confirmer</button>
 
 						@if ($errors->has('connect'))
               			<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('connect') }} </div>  </small>

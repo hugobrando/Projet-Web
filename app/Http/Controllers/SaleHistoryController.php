@@ -10,6 +10,6 @@ class SaleHistoryController extends Controller
     function show(){
     	$sales = Sell::getAllSell();
 
-    	return view('SaleHistory')->with(['sales' => $sales]);
+    	return view('saleHistory')->with(['sales' => $sales]);
     }
 }

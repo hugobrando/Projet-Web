@@ -9,7 +9,7 @@ function updateCriticalStock(){
 			document.getElementById("create").elements["criticalStock"].value = this.responseText; 
 		}
   	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/createProduct/"+category, true);
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/createProduct/"+category, true);
   	xhttp.send();
 
 
@@ -71,7 +71,7 @@ function updateProduct(){
 
 		}
   	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/modifyProduct/category/"+category, true);
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/modifyProduct/category/"+category, true);
   	xhttp.send();
 
 							
@@ -119,12 +119,12 @@ function showProduct(){
 							}
 							document.getElementById("productContent").innerHTML = html;
 					  	};
-						xhttp2.open("GET", "http://localhost/Projet-Web/public/category", true);
+						xhttp2.open("GET", "https://stockmanagementpw.herokuapp.com/category", true);
 					  	xhttp2.send();
 			
 
 		}
   	};
-	xhttp.open("GET", "http://localhost/Projet-Web/public/modifyProduct/product/"+product, true);
+	xhttp.open("GET", "https://stockmanagementpw.herokuapp.com/modifyProduct/product/"+product, true);
   	xhttp.send();
 }

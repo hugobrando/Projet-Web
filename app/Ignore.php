@@ -13,11 +13,11 @@ class Ignore extends Model
     protected $fillable = ['idProduct','idBoss','reasonIgnore'];
 
     public $timestamps = false; // pour ne pas avoir de colonne supplementaire (updated_at)
-    protected $table ='Ignore'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
+    protected $table ='ignore'; // //pour ne pas rajouter de s a la table lorsque l'on fait une requete SQL
 
     public static function createIgnore(){
         $idProduct = Product::getIdProductByWordingProduct(request('wordingProduct'));
-    	Self::create([
+    	Self::insert([
             'idBoss' => auth()->guard('boss')->user()->idBoss,
             'idProduct' => $idProduct,
         ]);

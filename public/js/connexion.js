@@ -1,6 +1,6 @@
 function checkMdp(){
-	var mdp = document.getElementById("mdp").value;
-	var mdpComfirm = document.getElementById("mdpConfimation").value;
+	var mdp = document.getElementById("password").value;
+	var mdpComfirm = document.getElementById("password_confirmation").value;
 	var message;
 
 	if (mdp != mdpComfirm){
