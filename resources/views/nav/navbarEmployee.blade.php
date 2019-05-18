@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>header de toute les pages</title>
+	<title>StockManagement</title>
 	<link rel="icon" type="image/ico" href="image/index.ico" />
 	
 	<!-- Bootstrap -->
@@ -20,11 +20,11 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-xl navbar-dark bg-primary fond ">
 			<a class="navbar-brand" href="./sale">
-				<img src="image/logo.png" alt="Le logo du site" class="taille">
+				<img src="image/index.jpg" alt="Le logo du site" class="taille">
 			</a>
 
 			<a class="navbar-brand" href="./sale"> 
-				<h1 class="titre">"Nom de l'entreprise"</h1>
+				<h1 class="titre">StockManagement</h1>
 			</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
