@@ -28,7 +28,7 @@
 
 
 	<div class="container-fluid">
-		<div class="col-lg-3  jumbotron  block">
+		<div class="col-xl-3 col-lg-4 col-md-6 jumbotron  block">
 			<h1 class="text-primary">Connexion</h1>
 				<form method="post" class="form-horizontal">
 					{{  csrf_field()  }}

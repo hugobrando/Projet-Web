@@ -43,10 +43,10 @@
                       <td>{{$product->order}}</td>
                       <td>
                         <div class="row justify-content-around">
-                          <div class="col-4 ">
+                          <div class="col-sm-4 ">
                             <input type="number" name="sale" min="0" max="{{$product->stockProduct}}" class="form-control tailleInputStock">
                           </div>
-                          <div class="col-4">
+                          <div class="col-sm-4">
                             <button type="submit" class="btn btn-primary" name="saleProduct">Confirmer la vente</button>
                           </div>
                         </div>

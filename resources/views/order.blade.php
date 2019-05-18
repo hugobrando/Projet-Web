@@ -46,13 +46,13 @@
                       <td>{{$product->order}}</td>
                       <td>
                         <div class="row justify-content-around">
-                          <div class="col-2 ">
+                          <div class="col-xl-2 col-lg-4">
                             <input type="number" name="order" min="1" class="form-control tailleInputOrder">
                           </div>
-                          <div class="col-2 ">
+                          <div class="col-xl-2 col-lg-4">
                             <input type="text" name="nameProvider" class="form-control tailleInputNameProvider" placeholder="Nom du fournisseur">
                           </div>
-                          <div class="col-5">
+                          <div class="col-xl-5 col-lg-10">
                             <button type="submit" class="btn btn-primary" name="orderProduct">Confirmer la commande</button>
                           </div>
                         </div>
@@ -99,13 +99,13 @@
                       <td>{{$product->order}}</td>
                       <td>
                         <div class="row justify-content-around">
-                          <div class="col-2 ">
+                          <div class="col-xl-2 col-lg-4">
                             <input type="number" name="order" min="1" class="form-control tailleInputOrder">
                           </div>
-                          <div class="col-2 ">
+                          <div class="col-xl-2 col-lg-4">
                             <input type="text" name="nameProvider" class="form-control tailleInputNameProvider" placeholder="Nom du fournisseur">
                           </div>
-                          <div class="col-5">
+                          <div class="col-xl-5 col-lg-10">
                             <button type="submit" class="btn btn-primary" name="orderProduct">Confirmer la commande</button>
                           </div>
                         </div>

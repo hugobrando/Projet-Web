@@ -47,10 +47,10 @@
                       <td>{{$product->name}} {{$product->firstName}}</td>
                       <td> 
                       	<div class="row justify-content-center">
-                          <div class="col-7 input-group">
+                          <div class="col-lg-7 col-md-10 input-group">
                           	<textarea name="reasonIgnore" class="form-control" placeholder="Raison de la désactivation" rows="2" cols="50">{{$product->reasonIgnore}}</textarea>
                           </div>
-                          <div class="col-2">
+                          <div class="col-lg-2 col-md-4">
                             <button type="submit" class="btn btn-primary" name="newReasonProduct">Editer</button>
                           </div>
                         </div>

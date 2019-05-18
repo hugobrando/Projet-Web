@@ -17,7 +17,7 @@
 
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-lg-3 jumbotron  block">
+			<div class="col-xl-4 col-lg-5 col-md-7 jumbotron  block">
 				<h1 class="text-primary">Créer un Produit</h1>
 					<form method="post" class="form-horizontal" id="create">
 						{{  csrf_field()  }}
@@ -65,7 +65,7 @@
 
 			</div>
 
-			<div class="col-lg-3  jumbotron  block">
+			<div class="col-xl-4 col-lg-5 col-md-7  jumbotron  block">
 				<h1 class="text-primary">Modifier un Produit</h1>
 					<form method="post" class="form-horizontal" id="modify">
 						{{  csrf_field()  }}
