@@ -32,7 +32,14 @@
 
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 		    <form class="form-inline my-2 my-lg-0 nav">
-			    <button class="btn btn-success position" type="submit"><a href="./deconnect" class="deco">Déconnexion</a></button>
+			    <div class="row-2">
+		    		<div clas="row">
+		    			<p class="positionName deco"><strong>({{auth()->guard('user')->user()->firstName}} {{auth()->guard('user')->user()->name}})</strong></p>
+		    		</div>
+		    		<div clas="row">
+		    			<button class="btn btn-success position" type="submit"><a href="./deconnect" class="deco">Déconnexion</a></button>
+		    		</div>
+		    	</div>
 			</form>
 		  </div>
 		</nav>
