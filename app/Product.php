@@ -53,7 +53,7 @@ class Product extends Model
 
     public static function giveAllProductWithStock(){
     	$allProducts = self::where('stockProduct', '!=' ,0)
-    			->get(['wordingProduct','stockProduct']);
+    			->get();
         $result = [];
         foreach($allProducts as $element){
             $sumOrderQuantity = Order::getOrderQuantityById($element->idProduct);
