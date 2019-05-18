@@ -29,19 +29,26 @@ class Product extends Model
     }
 
     public static function updateProduct(){
-        $oldIdCategory = Category::getIdCategoryByWordingCategory(request('oldCategory'));
-        $newIdCategory = Category::getIdCategoryByWordingCategory(request('newCategory'));
+        try{
+            $oldIdCategory = Category::getIdCategoryByWordingCategory(request('oldCategory'));
+            $newIdCategory = Category::getIdCategoryByWordingCategory(request('newCategory'));
 
-        self::where('wordingProduct',request('oldWordingProduct'))
-            ->where('stockProduct',request('oldStockProduct'))
-            ->where('criticalStockProduct',request('oldCriticalStockProduct'))
-            ->where('idCategory',$oldIdCategory)
-            ->firstOrFail()  // pour ne rien faire si entre temps un attribut a changé notement le stock
-            ->update(['wordingProduct' => request('newWordingProduct'),
-                        'stockProduct' => request('newStockProduct'),
-                        'criticalStockProduct' => request('newCriticalStockProduct'),
-                        'idCategory' => $newIdCategory
-                    ]);
+            self::where('wordingProduct',request('oldWordingProduct'))
+                ->where('stockProduct',request('oldStockProduct'))
+                ->where('criticalStockProduct',request('oldCriticalStockProduct'))
+                ->where('idCategory',$oldIdCategory)
+                ->firstOrFail()  // pour ne rien faire si entre temps un attribut a changé notement le stock
+                ->update(['wordingProduct' => request('newWordingProduct'),
+                            'stockProduct' => request('newStockProduct'),
+                            'criticalStockProduct' => request('newCriticalStockProduct'),
+                            'idCategory' => $newIdCategory
+                        ]);
+                return true;
+        }
+        catch(\Exception $exeption){
+            return false;
+        }
+        
     }
 
     public static function giveAllProductWithStock(){

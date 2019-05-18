@@ -54,8 +54,13 @@ class CreateProductController extends Controller
 	            'oldCriticalStockProduct' => ['bail', 'required','int','min:0'],
 	    	]);
 
-	    	Product::updateProduct();
-	    	return back()->with('create', 'Le produit ' . request('newWordingProduct') . ' a été modifé !');
+	    	$result = Product::updateProduct();
+	    	if($result){
+	    		return back()->with('create', 'Le produit ' . request('newWordingProduct') . ' a été modifé !');
+	    	}
+	    	else{
+	    		return back()->with('create', 'Impossible ! Le produit ' . request('newWordingProduct') . " a été modifé entre temps l'operation a été annulé !");
+	    	}
 		}
 
     }
