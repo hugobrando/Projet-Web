@@ -42,14 +42,14 @@
 						</div>
 						<div class="form-group">
 							<label for="password">Mot de passe : </label>
-							<input type="password" name="password" id="password" class="form-control">
+							<input type="password" name="password" id="password" class="form-control" autocomplete="off">
 							@if ($errors->has('password'))
 	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('password') }} </div>  </small>
 	            			@endif
 						</div>
 						<div class="form-group">
 							<label for="password_confirmation">Confirmation Mot de passe : </label>
-							<input type="password" name="password_confirmation" id="password_confirmation" class="form-control" oninput="checkMdp()">
+							<input type="password" name="password_confirmation" id="password_confirmation" class="form-control" oninput="checkMdp()" autocomplete="off">
 							@if ($errors->has('password_confirmation'))
 	              				<small>  <div class="alert alert-danger" role="alert"> {{ $errors->first('password_confirmation') }} </div>  </small>
 	            			@endif
